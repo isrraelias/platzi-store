@@ -1,0 +1,65 @@
+<div>
+  <h2>String interpolation</h2>
+  <p>
+    nos permite ingresar código lógico (variables, operaciones) en el html
+    utilizando doble llaves {{ 2 + 2 }} , el titulo de la pagina es {{ title }}
+  </p>
+</div>
+
+<div>
+  <h2>NgModel</h2>
+  <p>
+    enlace de datos, directiva que trabaja en formularios, se agrega directiva
+    en app.module.ts
+  </p>
+  <p class="ejemplo-ngmodel">
+    aqui estamos trabajando con string interpolation y ngModel
+    <span>{{ title_ejemplo }}</span>
+  </p>
+  <input type="text" [(ngModel)]="title_ejemplo" />
+</div>
+
+<div>
+  <h2>Distintas directivas de ngModel</h2>
+  <h3>ngIf</h3>
+  <p>*ngIf que se muestra si el input anterior es igual a elias</p>
+  <div *ngIf="title_ejemplo == 'elias'">elemento div</div>
+
+  <h3>ngFor</h3>
+  <input type="text" [(ngModel)]="nombreFor" id="hola" />
+  <button (click)="addItem()">Agregar</button>
+
+  <ul>
+    <li *ngFor="let name of items; index as i">
+      {{ name }} {{ i }}
+      <button (click)="deleteItem(i)">Eliminar</button>
+    </li>
+    <li *ngIf="items.length == 0">lista vacia</li>
+  </ul>
+
+  <h2>recorriendo objetos comentado</h2>
+  <!-- <div *ngFor="let product of products">
+    {{ product.title }}
+    <img [src]="product.image" alt="" />
+    {{ product.price }}
+  </div>
+</div> -->
+
+  <div>
+    <h2>ngSwitch</h2>
+    <input type="text" [(ngModel)]="nombreSwitch" />
+    <div [ngSwitch]="nombreSwitch">
+      <p *ngSwitchCase="'elias'">hola elias</p>
+      <p *ngSwitchCase="'judith'">hola judith</p>
+      <p *ngSwitchCase="'edith'">hola edith</p>
+      <p *ngSwitchCase="'ippo'">hola ippo 😼</p>
+      <p *ngSwitchDefault>no es de la familia</p>
+    </div>
+  </div>
+
+  <div>
+    <h2>pipes</h2>
+    <input type="text" [(ngModel)]="power" />
+    {{ power | exponential }}
+  </div>
+</div>

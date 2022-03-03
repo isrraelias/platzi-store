@@ -1,0 +1,38 @@
+<mat-toolbar color="primary" class="footer">
+  <mat-toolbar-row>
+    <div class="footer-column">
+      <div class="caja">
+        <p>Columna 1</p>
+        <p>Opcion 2</p>
+        <p>Opcion 3</p>
+        <p>Opcion 1</p>
+      </div>
+      <div class="caja">
+        <p>Columna 1</p>
+        <p>Opcion 1</p>
+        <p>Opcion 2</p>
+        <p>Opcion 3</p>
+      </div>
+      <div class="caja">
+        <p>Contacto</p>
+        <mat-form-field>
+          <input
+            matInput
+            type="email"
+            [formControl]="emailField"
+            placeholder="Digite su correo"
+            required
+          />
+        </mat-form-field>
+        <button
+          mat-raised-button
+          [disabled]="emailField.invalid"
+          (click)="sendEmail()"
+        >
+          Enviar
+        </button>
+        <p *ngIf="emailField.invalid">El campo no es valido</p>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
